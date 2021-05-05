@@ -7,12 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mrcaracal.nasaroversphoto.R
 import com.mrcaracal.nasaroversphoto.model.Photo
+import com.mrcaracal.nasaroversphoto.util.RecyclerClick
 import kotlinx.android.synthetic.main.item_row.view.*
 
 private const val TAG = "NasaAdapter"
 
-class NasaAdapter(private val photos: List<Photo>) :
+class NasaAdapter(private val photos: List<Photo>, recyclerClick: RecyclerClick) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    var click = recyclerClick
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_row, parent, false)
@@ -23,6 +26,11 @@ class NasaAdapter(private val photos: List<Photo>) :
         when (holder) {
             is PhotoHolder -> {
                 holder.bind(photos[position])
+
+                holder.itemView.setOnClickListener {
+                    click.openWindow(photos[position])
+                }
+
             }
         }
     }
