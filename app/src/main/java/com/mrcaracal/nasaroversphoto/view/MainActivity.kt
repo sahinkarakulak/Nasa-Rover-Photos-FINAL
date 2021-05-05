@@ -22,8 +22,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), RecyclerClick {
 
-    // https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=cJoyDKbVhUx8CLDZy0tiaE24FZX0rOdFyAdkdabD
-
     private lateinit var viewmodel: MainViewModel
     private lateinit var nasaAdapter: NasaAdapter
 
@@ -165,7 +163,7 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
     override fun openWindow(photoClick: Photo) {
 
         val window = PopupWindow(this)
-        val view =layoutInflater.inflate(R.layout.layout_popup, null)
+        val view = layoutInflater.inflate(R.layout.layout_popup, null)
         window.contentView = view
         window.showAtLocation(
             tabLayout,
@@ -189,12 +187,12 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
 
         val image = "${photoClick.imgSrc}".replace("http", "https")
         Glide.with(this).load(image).into(pictureMars)
-        cekildigiTarihMars.text = "Date: "+photoClick.earthDate
-        aracAdiMars.text = "Rover Name: "+photoClick.rover.name
-        kameraAdiMars.text = "Camera Name: "+photoClick.camera.name
-        gorevDurumuMars.text = "Status: "+photoClick.rover.status
-        firlatmaMars.text = "Launch Date: "+photoClick.rover.launchDate
-        inisMars.text = "Landing Date: "+photoClick.rover.landingDate
+        cekildigiTarihMars.text = "Date: " + photoClick.earthDate
+        aracAdiMars.text = "Rover Name: " + photoClick.rover.name
+        kameraAdiMars.text = "Camera Name: " + photoClick.camera.name
+        gorevDurumuMars.text = "Status: " + photoClick.rover.status
+        firlatmaMars.text = "Launch Date: " + photoClick.rover.launchDate
+        inisMars.text = "Landing Date: " + photoClick.rover.landingDate
 
     }
 
