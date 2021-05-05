@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
     private lateinit var nasaAdapter: NasaAdapter
 
     private var carName = "spirit"
+    private var sol_number = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val str_tab_name = tab?.text.toString().toLowerCase()
                 carName = str_tab_name
-                viewmodel.refreshData(carName, "")
+                viewmodel.refreshData(carName, "", sol_number)
                 recycler_view.smoothScrollToPosition(0)
             }
 
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
 
 
         viewmodel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewmodel.refreshData(carName, "")
+        viewmodel.refreshData(carName, "", sol_number)
 
         getLiveData()
 
@@ -60,9 +61,15 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
             tv_error.visibility = View.GONE
             pb_loading.visibility = View.GONE
 
-            viewmodel.refreshData(carName, "")
+            viewmodel.refreshData(carName, "", sol_number)
 
             swipe_refresh_layout.isRefreshing = false
+        }
+
+        img_sol.setOnClickListener {
+            sol_number = edt_sol.text.toString().toInt()
+            viewmodel.refreshData(carName, "", sol_number)
+
         }
 
     }
@@ -113,47 +120,47 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
         return when (item.itemId) {
             R.id.fhaz -> {
                 Toast.makeText(this@MainActivity, "fhaz", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "fhaz")
+                viewmodel.refreshData(carName, "fhaz", sol_number)
                 return true
             }
             R.id.rhaz -> {
                 Toast.makeText(this@MainActivity, "RHAZ", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "rhaz")
+                viewmodel.refreshData(carName, "rhaz", sol_number)
                 true
             }
             R.id.mast -> {
                 Toast.makeText(this@MainActivity, "MAST", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "mast")
+                viewmodel.refreshData(carName, "mast", sol_number)
                 true
             }
             R.id.chemcam -> {
                 Toast.makeText(this@MainActivity, "CHENCAM", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "chencam")
+                viewmodel.refreshData(carName, "chencam", sol_number)
                 true
             }
             R.id.mahli -> {
                 Toast.makeText(this@MainActivity, "MAHLI", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "mahli")
+                viewmodel.refreshData(carName, "mahli", sol_number)
                 true
             }
             R.id.mardi -> {
                 Toast.makeText(this@MainActivity, "MARDI", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "mardi")
+                viewmodel.refreshData(carName, "mardi", sol_number)
                 true
             }
             R.id.navcam -> {
                 Toast.makeText(this@MainActivity, "NAVCAM", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "navcam")
+                viewmodel.refreshData(carName, "navcam", sol_number)
                 true
             }
             R.id.pancam -> {
                 Toast.makeText(this@MainActivity, "PANCAM", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "pancam")
+                viewmodel.refreshData(carName, "pancam", sol_number)
                 true
             }
             R.id.minites -> {
                 Toast.makeText(this@MainActivity, "MINITES", Toast.LENGTH_SHORT).show()
-                viewmodel.refreshData(carName, "minites")
+                viewmodel.refreshData(carName, "minites", sol_number)
                 true
             }
             else -> super.onOptionsItemSelected(item)

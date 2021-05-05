@@ -21,19 +21,19 @@ class MainViewModel : ViewModel() {
     val nasa_error = MutableLiveData<Boolean>()
     val nasa_loading = MutableLiveData<Boolean>()
 
-    fun refreshData(carName: String, cameraName: String) {
+    fun refreshData(carName: String, cameraName: String, solNumber: Int) {
 
         // from API
-        getDataFromAPI(carName, cameraName)
+        getDataFromAPI(carName, cameraName, solNumber)
 
         // from Local
         getDataFromLocal()
     }
 
-    private fun getDataFromAPI(carName: String, cameraName: String) {
+    private fun getDataFromAPI(carName: String, cameraName: String, solNumber: Int) {
         nasa_loading.value = true
         disposable.add(
-            nasaApıService.getDataService(carName, cameraName)
+            nasaApıService.getDataService(carName, cameraName, solNumber)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<PhotosModel>() {

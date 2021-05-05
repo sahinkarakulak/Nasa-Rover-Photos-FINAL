@@ -19,12 +19,12 @@ class NasaAPIService {
         .build()
         .create(NasaAPI::class.java)
 
-    fun getDataService(carName: String, cameraName: String): Single<PhotosModel> {
+    fun getDataService(carName: String, cameraName: String, solNumber: Int): Single<PhotosModel> {
 
         if (cameraName.equals("")) {
-            return api.getData2(carName)
+            return api.getData2(carName, solNumber)
         } else {
-            return api.getData(carName, cameraName)
+            return api.getData(carName, cameraName, solNumber)
         }
     }
 

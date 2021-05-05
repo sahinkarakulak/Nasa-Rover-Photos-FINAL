@@ -34,13 +34,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -69,9 +72,43 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@+id/tabLayout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_above="@+id/ll_edt"
                 android:layout_weight="1" />
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/ll_edt"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/bg_edit_text"
+                android:layout_margin="3dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edt_sol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:inputType="number"
+                    android:text="100"/>
+
+                <ImageView
+                    android:id="@+id/img_sol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_send_24"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

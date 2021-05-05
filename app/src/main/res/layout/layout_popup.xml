@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/popup_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:backgroundTintMode="@android:color/transparent"
     app:cardElevation="20dp">
 
@@ -26,8 +26,8 @@
 
         <ImageView
             android:id="@+id/popup_resim"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_baseline_catching_pokemon_24" />
 

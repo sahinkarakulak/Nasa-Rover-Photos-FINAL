@@ -10,15 +10,17 @@ interface NasaAPI {
 
     // https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=cJoyDKbVhUx8CLDZy0tiaE24FZX0rOdFyAdkdabD
 
-    @GET("api/v1/rovers/{carName}/photos?sol=1000&&api_key=cJoyDKbVhUx8CLDZy0tiaE24FZX0rOdFyAdkdabD")
+    @GET("api/v1/rovers/{carName}/photos?sol=100&&api_key=cJoyDKbVhUx8CLDZy0tiaE24FZX0rOdFyAdkdabD")
     fun getData(
         @Path("carName") carName: String,
-        @Query("camera") cameraName: String
+        @Query("camera") cameraName: String,
+        @Query("sol") solNumber: Int
     ): Single<PhotosModel>
 
-    @GET("api/v1/rovers/{carName}/photos?sol=1000&&api_key=cJoyDKbVhUx8CLDZy0tiaE24FZX0rOdFyAdkdabD")
+    @GET("api/v1/rovers/{carName}/photos?sol=100&&api_key=cJoyDKbVhUx8CLDZy0tiaE24FZX0rOdFyAdkdabD")
     fun getData2(
-        @Path("carName") carName: String
+        @Path("carName") carName: String,
+        @Query("sol") solNumber: Int
     ): Single<PhotosModel>
 
 }
