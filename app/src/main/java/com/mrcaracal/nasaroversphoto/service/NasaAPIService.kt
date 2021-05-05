@@ -21,9 +21,9 @@ class NasaAPIService {
 
     fun getDataService(carName: String, cameraName: String): Single<PhotosModel> {
 
-        if (cameraName.equals("")){
+        if (cameraName.equals("")) {
             return api.getData2(carName)
-        }else{
+        } else {
             return api.getData(carName, cameraName)
         }
     }

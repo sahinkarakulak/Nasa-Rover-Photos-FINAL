@@ -1,10 +1,7 @@
 package com.mrcaracal.nasaroversphoto.view
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -28,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -70,13 +66,9 @@ class MainActivity : AppCompatActivity() {
         viewmodel.nasa_data.observe(this, Observer { data ->
             recycler_view.visibility = View.VISIBLE
 
-            // get all data and view in GridLayout
-            // send data to Adapter
-
             nasaAdapter = NasaAdapter(photos = data.photos)
             recycler_view.layoutManager = GridLayoutManager(this@MainActivity, 2)
             recycler_view.adapter = nasaAdapter
-
 
         })
 
@@ -162,4 +154,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 }
