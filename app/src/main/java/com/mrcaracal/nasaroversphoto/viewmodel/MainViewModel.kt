@@ -27,7 +27,7 @@ class MainViewModel : ViewModel() {
         getDataFromAPI(carName, cameraName, solNumber)
 
         // from Local
-        getDataFromLocal()
+        //getDataFromLocal()
     }
 
     private fun getDataFromAPI(carName: String, cameraName: String, solNumber: Int) {
@@ -56,7 +56,7 @@ class MainViewModel : ViewModel() {
     }
 
     private fun getDataFromLocal() {
-
+        //
     }
 
 }

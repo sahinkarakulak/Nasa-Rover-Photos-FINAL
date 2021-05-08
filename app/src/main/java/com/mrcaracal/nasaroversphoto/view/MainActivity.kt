@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
     private lateinit var nasaAdapter: NasaAdapter
 
     private var carName = "spirit"
-    private var sol_number = 100
+    private var sol_number = 999
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -91,6 +91,13 @@
                 android:layout_margin="3dp"
                 android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Solar Day:"
+                    android:layout_marginRight="10dp"
+                    android:textSize="20sp"/>
+
                 <EditText
                     android:id="@+id/edt_sol"
                     android:layout_width="match_parent"
@@ -98,7 +105,7 @@
                     android:layout_weight="1"
                     android:layout_marginRight="10dp"
                     android:inputType="number"
-                    android:text="100"/>
+                    android:text="999"/>
 
                 <ImageView
                     android:id="@+id/img_sol"
