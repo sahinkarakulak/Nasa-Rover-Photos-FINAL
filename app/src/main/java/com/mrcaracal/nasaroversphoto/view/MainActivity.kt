@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
 
         })
 
-
         viewmodel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         viewmodel.refreshData(carName, "", sol_number)
 
@@ -78,7 +77,7 @@ class MainActivity : AppCompatActivity(), RecyclerClick {
         viewmodel.nasa_data.observe(this, Observer { data ->
             recycler_view.visibility = View.VISIBLE
 
-            nasaAdapter = NasaAdapter(photos = data.photos, this)
+            nasaAdapter = NasaAdapter(photos = data.photos, recyclerClick = this)
             recycler_view.layoutManager = GridLayoutManager(this@MainActivity, 2)
             recycler_view.adapter = nasaAdapter
 
